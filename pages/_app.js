@@ -4,6 +4,7 @@ import Head from 'next/head'
 import { ThemeProvider } from '@material-ui/core/styles'
 import theme from '../src/theme'
 import './css/style.css'
+import 'fontsource-roboto'
 
 export default function MyApp(props) {
   const { Component, pageProps } = props
@@ -23,6 +24,10 @@ export default function MyApp(props) {
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"
+        />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
         />
       </Head>
       <ThemeProvider theme={theme}>
