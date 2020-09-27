@@ -74,7 +74,7 @@ class RucheDB
         //Requête à exécuter
         $query = 'SELECT date, poids, temp_ext, humidite, temp_int, pression_ath, luminosite, intensite, tension
          FROM data
-	 WHERE date > (NOW() - INTERVAL 3 MONTH) AND hour(date) = 15
+	 WHERE date > (NOW() - INTERVAL 3 MONTH) AND hour(date) = 12
 	 GROUP BY year(date), month(date), day(date);';
 
         //on exécute la requête
