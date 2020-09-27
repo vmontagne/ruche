@@ -10,7 +10,7 @@ import { FitnessCenter, AcUnit, Speed, AccessAlarm, Home, BrightnessLow, Opacity
 import Chart from '../src/components/Chart'
 import StatValue from '../src/components/StatValue'
 
-const API_URL = "http://ruche.msabarthes.fr/"
+const API_URL = "/"
 
 export default function Index() {
   const [width, setWidth] = useState(null)
