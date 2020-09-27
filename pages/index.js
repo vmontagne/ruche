@@ -10,6 +10,8 @@ import { FitnessCenter, AcUnit, Speed, AccessAlarm, Home, BrightnessLow, Opacity
 import Chart from '../src/components/Chart'
 import StatValue from '../src/components/StatValue'
 
+const API_URL = "/"
+
 export default function Index() {
   const [width, setWidth] = useState(null)
   const chartContainer = useRef(null)
@@ -17,7 +19,7 @@ export default function Index() {
   const [graph, setGraph] = useState([])
 
   useEffect(() => {
-    fetch('http://192.168.1.27/api/index.php', { mode: 'cors' }).then((response) =>
+    fetch(`${API_URL}api/index.php`, { mode: 'cors' }).then((response) =>
        response.json()
     )
     .then(data => {
