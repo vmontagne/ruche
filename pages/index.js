@@ -20,19 +20,17 @@ export default function Index() {
 
   const getData = () => {
     fetch(`${API_URL}api/index.php`, { mode: 'cors' }).then((response) =>
-       response.json()
-    )
-    .then(data => {
-      console.log(data)
-      setMeasure(data.measure)
-      setGraph(data.graphs)
-    })
+        response.json()
+      )
+      .then(data => {
+        setMeasure(data.measure)
+        setGraph(data.graphs)
+      })
   }
 
   useEffect(() => {
     setInterval(getData, 1000)
   }, [])
-  console.log(chartContainer)
   useLayoutEffect(() => {
     if (chartContainer.current) {
       setWidth(chartContainer.current.offsetWidth)
@@ -108,12 +106,18 @@ export default function Index() {
         </Grid>
         <Grid item xs={12}>
           <Paper className={styles.paper} ref={chartContainer}>
+            <Typography variant="h4" component="h3" className={styles.textCenter}>
+              Mesure sur 3 mois
+            </Typography>
             <Chart width={width} data={graph.month} unitFormat="DD/MM/Y" />
           </Paper>
         </Grid>
         <Grid item xs={12}>
           <Paper className={styles.paper} ref={chartContainer}>
-            <Chart width={width} data={graph.day}  unitFormat="HH:mm"/>
+            <Typography variant="h4" component="h3" className={styles.textCenter}>
+              Mesure sur 24H
+            </Typography>
+            <Chart width={width} data={graph.day} unitFormat="HH:mm" />
           </Paper>
         </Grid>
       </Grid>
