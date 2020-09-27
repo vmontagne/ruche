@@ -10,7 +10,7 @@ import { FitnessCenter, AcUnit, Speed, AccessAlarm, Home, BrightnessLow, Opacity
 import Chart from '../src/components/Chart'
 import StatValue from '../src/components/StatValue'
 
-const API_URL = "/"
+const API_URL = "http://ruche.msabarthes.fr/"
 
 export default function Index() {
   const [width, setWidth] = useState(null)
@@ -18,7 +18,7 @@ export default function Index() {
   const [measure, setMeasure] = useState({})
   const [graph, setGraph] = useState([])
 
-  useEffect(() => {
+  const getData = () => {
     fetch(`${API_URL}api/index.php`, { mode: 'cors' }).then((response) =>
        response.json()
     )
@@ -27,6 +27,10 @@ export default function Index() {
       setMeasure(data.measure)
       setGraph(data.graphs)
     })
+  }
+
+  useEffect(() => {
+    setInterval(getData, 1000)
   }, [])
   console.log(chartContainer)
   useLayoutEffect(() => {
