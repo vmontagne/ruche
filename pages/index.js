@@ -39,7 +39,7 @@ export default function Index() {
   return (
     <Container maxWidth={false} className={styles.pageContainer}>
       <Grid container spacing={3} justify="center" gutterBottom>
-        <Grid item xs={4} className={styles.titleContainer}>
+        <Grid item md={4} className={styles.titleContainer}>
           <Typography variant="h4" component="h1">
             Ruche Connectée
           </Typography>
@@ -47,7 +47,7 @@ export default function Index() {
       </Grid>
       <div className={styles.spacer} />
       <Grid container spacing={3}>
-        <Grid item xs={4}>
+        <Grid item md={4} xs={12}>
           <Paper className={styles.paper}>
             <StatValue
               picto={<FitnessCenter fontSize="large" />}
@@ -66,7 +66,7 @@ export default function Index() {
             />
           </Paper>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item md={4} xs={12}>
           <Paper className={styles.paper}>
             <StatValue
               picto={<BrightnessLow fontSize="large" />}
@@ -85,7 +85,7 @@ export default function Index() {
             />
           </Paper>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item md={4} xs={12}>
           <Paper className={styles.paper}>
             <StatValue
               picto={<BatteryChargingFull fontSize="large" />}
