@@ -49,11 +49,11 @@ const Chart = ({ width, data, unitFormat }) => {
   }
   return (
     <LineChart width={width} height={width / 3} data={data}>
+      <CartesianGrid stroke="#ccc" />
       <Line type="monotone" dataKey="poids" stroke="#8884d8" yAxisId="poids" name="poids" />
       <YAxis orientation="right" dataKey="poids" yAxisId="poids"/>
       <Line type="monotone" dataKey="temp_ext" stroke="#880000" name="temperature" />
       <YAxis orientation="left" dataKey="temp_ext" />
-      <CartesianGrid stroke="#ccc" />
       <Legend verticalAlign="top" height={36} />
       <XAxis dataKey="date" tickFormatter={formatUnits} />
       <Tooltip labelFormatter={tooltipFormatter} />
