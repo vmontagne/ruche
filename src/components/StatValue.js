@@ -3,7 +3,7 @@ import Grid from '@material-ui/core/Grid'
 import styles from './StatValue.module.css'
 import Typography from '@material-ui/core/Typography'
 
-const StatValue = ({ picto, label, value }) => {
+const StatValue = ({ picto, label, value, suffix }) => {
   return (
     <Grid
       container
@@ -21,7 +21,9 @@ const StatValue = ({ picto, label, value }) => {
         <Typography>:</Typography>
       </Grid>
       <Grid item>
-        <Typography>{value}</Typography>
+        <Typography>
+          {value} {suffix}
+        </Typography>
       </Grid>
     </Grid>
   )

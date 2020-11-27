@@ -11,6 +11,7 @@ import Chart from '../src/components/Chart'
 import StatValue from '../src/components/StatValue'
 
 const API_URL = "/"
+// const API_URL = "http://ruche.msabarthes.fr/"
 
 export default function Index() {
   const [width, setWidth] = useState(null)
@@ -29,7 +30,8 @@ export default function Index() {
   }
 
   useEffect(() => {
-    setInterval(getData, 1000)
+    getData()
+    setInterval(getData, 300000)
   }, [])
   useLayoutEffect(() => {
     if (chartContainer.current) {
@@ -37,7 +39,19 @@ export default function Index() {
     }
   }, [])
   return (
-    <Container maxWidth={false} className={styles.pageContainer}>
+    <Container className={styles.pageContainer}>
+      <Grid container spacing={3} justify="space-between" gutterBottom>
+        <Grid item xs="auto">
+          <img src="/images/LogoAssoc.jpg" />
+        </Grid>
+        <Grid item xs="auto" >
+          <Typography variant="h4" component="h1">
+            Frejeville<br/>
+            Tarn
+          </Typography>
+        </Grid>
+      </Grid>
+      <div className={styles.spacer} />
       <Grid container spacing={3} justify="center" gutterBottom>
         <Grid item md={4} className={styles.titleContainer}>
           <Typography variant="h4" component="h1">
@@ -53,16 +67,19 @@ export default function Index() {
               picto={<FitnessCenter fontSize="large" />}
               label="Poids"
               value={measure.poids}
+              suffix="Kg"
             />
             <StatValue
               picto={<AcUnit fontSize="large" />}
               label="Température extérieure"
               value={measure.temp_ext}
+              suffix="°C"
             />
             <StatValue
               picto={<Home fontSize="large" />}
               label="Température intérieure"
               value={measure.temp_int}
+              suffix="°C"
             />
           </Paper>
         </Grid>
@@ -72,16 +89,19 @@ export default function Index() {
               picto={<BrightnessLow fontSize="large" />}
               label="Luminosité"
               value={measure.luminosite}
+              suffix="Lux"
             />
             <StatValue
               picto={<Opacity fontSize="large" />}
               label="Humidité"
               value={measure.humidite}
+              suffix="%"
             />
             <StatValue
               picto={<Cloud fontSize="large" />}
               label="Pression athmosphérique"
               value={measure.pression_ath}
+              suffix="mBars"
             />
           </Paper>
         </Grid>
@@ -90,26 +110,29 @@ export default function Index() {
             <StatValue
               picto={<BatteryChargingFull fontSize="large" />}
               label="Tension"
-              value={measure.tension}
+              value={measure.tension / 10}
+              suffix="Volts"
             />
             <StatValue
               picto={<BatteryChargingFull fontSize="large" />}
               label="Intensité"
               value={measure.intensite}
+              suffix="mA"
             />
             <StatValue
               picto={<AccessAlarm fontSize="large" />}
               label="Heure"
               value={moment(measure.date).format('DD/MM/Y HH:mm')}
+              suffix="T.U."
             />
           </Paper>
         </Grid>
         <Grid item xs={12}>
           <Paper className={styles.paper} ref={chartContainer}>
             <Typography variant="h4" component="h3" className={styles.textCenter}>
-              Mesure sur 3 mois
+              Mesure sur 3 mois à 12h T.U.
             </Typography>
-            <Chart width={width} data={graph.month} unitFormat="DD/MM/Y" />
+            <Chart with={width} data={graph.month} unitFormat="DD/MM/Y" />
           </Paper>
         </Grid>
         <Grid item xs={12}>

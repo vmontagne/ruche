@@ -1,44 +1,7 @@
 import React from 'react'
-import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip,Legend } from 'recharts'
+import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip,Legend , Label} from 'recharts'
 import styles from './StatValue.module.css'
 import moment from 'moment'
-const mockData = [
-  {
-    t: '2020-01-01',
-    weight: 20,
-    temp: 19,
-  },
-  {
-    t: '2020-02-01',
-    weight: 35,
-    temp: 22,
-  },
-  {
-    t: '2020-03-01',
-    weight: 40,
-    temp: 26,
-  },
-  {
-    t: '2020-04-01',
-    weight: 45,
-    temp: 15,
-  },
-  {
-    t: '2020-05-01',
-    weight: 50,
-    temp: 25,
-  },
-  {
-    t: '2020-06-01',
-    weight: 60,
-    temp: 29,
-  },
-  {
-    t: '2020-07-01',
-    weight: 70,
-    temp: 35,
-  },
-]
 
 const Chart = ({ width, data, unitFormat }) => {
   const formatUnits = (value) => {
@@ -51,9 +14,13 @@ const Chart = ({ width, data, unitFormat }) => {
     <LineChart width={width} height={width / 3} data={data}>
       <CartesianGrid stroke="#ccc" />
       <Line type="monotone" dataKey="poids" stroke="#8884d8" yAxisId="poids" name="poids" />
-      <YAxis orientation="right" dataKey="poids" yAxisId="poids"/>
-      <Line type="monotone" dataKey="temp_ext" stroke="#880000" name="temperature" />
-      <YAxis orientation="left" dataKey="temp_ext" />
+      <YAxis orientation="right" dataKey="poids" yAxisId="poids">
+        <Label position="insideTopRight" value="Kg" />
+      </YAxis>
+      <Line type="monotone" dataKey="temp_ext" stroke="#880000" name="temperature extérieure" />
+      <YAxis orientation="left" dataKey="temp_ext">
+        <Label position="insideTopLeft" value="°C" />
+        </YAxis>
       <Legend verticalAlign="top" height={36} />
       <XAxis dataKey="date" tickFormatter={formatUnits} />
       <Tooltip labelFormatter={tooltipFormatter} />
