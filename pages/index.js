@@ -132,7 +132,7 @@ export default function Index() {
             <Typography variant="h4" component="h3" className={styles.textCenter}>
               Mesure sur 3 mois à 12h T.U.
             </Typography>
-            <Chart with={width} data={graph.month} unitFormat="DD/MM/Y" />
+            <Chart width={width} data={graph.month} unitFormat="DD/MM/Y" />
           </Paper>
         </Grid>
         <Grid item xs={12}>
