@@ -35,7 +35,7 @@ export default function Index() {
   }, [])
   useLayoutEffect(() => {
     if (chartContainer.current) {
-      setWidth(chartContainer.current.offsetWidth)
+      setWidth(chartContainer.current.offsetWidth - 30)
     }
   }, [])
   return (
