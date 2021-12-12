@@ -74,7 +74,7 @@ class RucheDB
         //Requête à exécuter
         $query = 'SELECT date, poids, temp_ext, humidite, temp_int, pression_ath, luminosite, intensite, tension
          FROM data
-	 WHERE date > (NOW() - INTERVAL 3 MONTH) AND hour(date) = 12
+	 WHERE date > (NOW() - INTERVAL 6 MONTH) AND hour(date) = 12
 	 GROUP BY year(date), month(date), day(date);';
 
         //on exécute la requête
@@ -97,8 +97,8 @@ class RucheDB
             $temps_ext[$date->format('U')] = $row['temp_ext'];
 	    $datas[] = [
 		    'date' => $date->format('c'),
-		    'poids' => $row['poids'],
-		    'temp_ext' => $row['temp_ext'],
+		    'poids' => intval($row['poids']),
+		    'temp_ext' => intval($row['temp_ext']),
 	    ];
         }
 
@@ -143,8 +143,8 @@ class RucheDB
             $temps_ext[$date->format('U')] = $row['temp_ext'];
 	    $datas[] = [
 		    'date' => $date->format('c'),
-		    'poids' => $row['poids'],
-		    'temp_ext' => $row['temp_ext'],
+		    'poids' => intval($row['poids']),
+		    'temp_ext' => intval($row['temp_ext']),
 	    ];
         }
 

@@ -14,11 +14,11 @@ const Chart = ({ width, data, unitFormat }) => {
     <LineChart width={width} height={width / 3} data={data}>
       <CartesianGrid stroke="#ccc" />
       <Line type="monotone" dataKey="poids" stroke="#8884d8" yAxisId="poids" name="poids" />
-      <YAxis orientation="right" dataKey="poids" yAxisId="poids">
+      <YAxis orientation="right" dataKey="poids" yAxisId="poids" domain={['dataMin', 'dataMax']}>
         <Label position="insideTopRight" value="Kg" />
       </YAxis>
-      <Line type="monotone" dataKey="temp_ext" stroke="#880000" name="temperature extérieure" />
-      <YAxis orientation="left" dataKey="temp_ext">
+      <Line type="monotone" dataKey="temp_ext" stroke="#880000" name="temperature extérieure" yAxisId="temp_ext" />
+      <YAxis orientation="left" dataKey="temp_ext" yAxisId="temp_ext" domain={['dataMin', 'dataMax']}>
         <Label position="insideTopLeft" value="°C" />
         </YAxis>
       <Legend verticalAlign="top" height={36} />
