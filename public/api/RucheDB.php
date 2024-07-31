@@ -59,7 +59,7 @@ class RucheDB
         $row = $results;
 
         //On enlève le poids à vide initial de la ruche
-        $row['poids'] = $row['poids'];
+        $row['poids'] = $row['poids']/10;
 
         return $row;
 
@@ -97,7 +97,7 @@ class RucheDB
             $temps_ext[$date->format('U')] = $row['temp_ext'];
 	    $datas[] = [
 		    'date' => $date->format('c'),
-		    'poids' => intval($row['poids']),
+		    'poids' => intval($row['poids'])/10,
 		    'temp_ext' => intval($row['temp_ext']),
 	    ];
         }
@@ -139,11 +139,11 @@ class RucheDB
 	    $date = new \DateTime($row['date']);
 
             //on intègre les données dans les différents tableau...
-            $poids[$date->format('U')] = $row['poids'];
+            $poids[$date->format('U')] = $row['poids']/10;
             $temps_ext[$date->format('U')] = $row['temp_ext'];
 	    $datas[] = [
 		    'date' => $date->format('c'),
-		    'poids' => intval($row['poids']),
+		    'poids' => intval($row['poids'])/10,
 		    'temp_ext' => intval($row['temp_ext']),
 	    ];
         }
