@@ -18,7 +18,7 @@ class RucheDB
     public function __construct()
     {
         //on instancie la connection à la BD (permet de mtualiser pour toutes les requêtes
-        $this->db = new PDO('mysql:host=localhost;dbname=ruche;charset=utf8', 'ruche', 'Pb45Fh4vB');
+        $this->db = new PDO('mysql:host=localhost;dbname=ruche;charset=utf8', getenv('DB_USER'), getenv('DB_PASS'));
     }
 
     /**
