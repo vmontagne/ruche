@@ -47,7 +47,7 @@ class RucheDB
      */
     public function getCurrentMeasure() {
         //Requête SQL à éxécuter
-        $query = 'SELECT date, poids, temp_ext, humidite, temp_int, pression_ath, luminosite, intensite, tension  FROM data 
+        $query = 'SELECT date, poids, temp_ext, humidite, temp_int, pression_ath, dew_point, intensite, tension  FROM data 
                   ORDER BY date DESC
                   LIMIT 1;';
 
@@ -72,7 +72,7 @@ class RucheDB
      */
     public function getHistoryMonthData() {
         //Requête à exécuter
-        $query = 'SELECT date, poids, temp_ext, humidite, temp_int, pression_ath, luminosite, intensite, tension
+        $query = 'SELECT date, poids, temp_ext, humidite, temp_int, pression_ath, dew_point, intensite, tension
          FROM data
 	 WHERE date > (NOW() - INTERVAL 6 MONTH) AND hour(date) = 12
 	 GROUP BY year(date), month(date), day(date);';
@@ -117,7 +117,7 @@ class RucheDB
      */
     public function getHistoryDayData() {
         //Requête à exécuter
-        $query = 'SELECT date, poids, temp_ext, humidite, temp_int, pression_ath, luminosite, intensite, tension
+        $query = 'SELECT date, poids, temp_ext, humidite, temp_int, pression_ath, dew_point, intensite, tension
          FROM data
 	 WHERE date > (NOW() - INTERVAL 1 DAY) AND minute(date) < 10 
 	 GROUP BY year(date), month(date), day(date), hour(date)

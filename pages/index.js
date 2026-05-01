@@ -86,10 +86,10 @@ export default function Index() {
         <Grid item md={4} xs={12}>
           <Paper className={styles.paper}>
             <StatValue
-              picto={<BrightnessLow fontSize="large" />}
-              label="Luminosité"
-              value={measure.luminosite}
-              suffix="Lux"
+              picto={<Opacity fontSize="large" />}
+              label="Point de rosée"
+              value={measure.dew_point}
+              suffix="°C"
             />
             <StatValue
               picto={<Opacity fontSize="large" />}
@@ -110,7 +110,7 @@ export default function Index() {
             <StatValue
               picto={<BatteryChargingFull fontSize="large" />}
               label="Tension"
-              value={measure.tension / 10}
+              value={measure.tension}
               suffix="Volts"
             />
             <StatValue
