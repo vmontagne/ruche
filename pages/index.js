@@ -21,8 +21,8 @@ export default function Index() {
 
   const getData = () => {
     fetch(`${API_URL}api/index.php`, { mode: 'cors' }).then((response) =>
-        response.json()
-      )
+      response.json()
+    )
       .then(data => {
         setMeasure(data.measure)
         setGraph(data.graphs)
@@ -46,7 +46,7 @@ export default function Index() {
         </Grid>
         <Grid item xs="auto" >
           <Typography variant="h4" component="h1">
-            Frejeville<br/>
+            Frejeville<br />
             Tarn
           </Typography>
         </Grid>
@@ -72,13 +72,13 @@ export default function Index() {
             <StatValue
               picto={<AcUnit fontSize="large" />}
               label="Température extérieure"
-              value={measure.temp_ext}
+              value={parseInt(measure.temp_ext)}
               suffix="°C"
             />
             <StatValue
               picto={<Home fontSize="large" />}
               label="Température intérieure"
-              value={measure.temp_int}
+              value={parseInt(measure.temp_int)}
               suffix="°C"
             />
           </Paper>
@@ -88,19 +88,19 @@ export default function Index() {
             <StatValue
               picto={<Opacity fontSize="large" />}
               label="Point de rosée"
-              value={measure.dew_point}
+              value={parseInt(measure.dew_point)}
               suffix="°C"
             />
             <StatValue
               picto={<Opacity fontSize="large" />}
               label="Humidité"
-              value={measure.humidite}
+              value={parseInt(measure.humidite)}
               suffix="%"
             />
             <StatValue
               picto={<Cloud fontSize="large" />}
               label="Pression athmosphérique"
-              value={measure.pression_ath}
+              value={parseInt(measure.pression_ath)}
               suffix="mBars"
             />
           </Paper>
@@ -116,7 +116,7 @@ export default function Index() {
             <StatValue
               picto={<BatteryChargingFull fontSize="large" />}
               label="Intensité"
-              value={measure.intensite}
+              value={parseInt(measure.intensite)}
               suffix="mA"
             />
             <StatValue

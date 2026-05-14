@@ -1,5 +1,5 @@
 import React from 'react'
-import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip,Legend , Label} from 'recharts'
+import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Label } from 'recharts'
 import styles from './StatValue.module.css'
 import moment from 'moment'
 
@@ -14,13 +14,13 @@ const Chart = ({ width, data, unitFormat }) => {
     <LineChart width={width} height={width / 3} data={data}>
       <CartesianGrid stroke="#ccc" />
       <Line type="monotone" dataKey="poids" stroke="#8884d8" yAxisId="poids" name="poids" />
-      <YAxis orientation="right" dataKey="poids" yAxisId="poids" domain={['dataMin', 'dataMax']}>
+      <YAxis orientation="right" dataKey="poids" yAxisId="poids" domain={[0, 70]}>
         <Label position="insideTopRight" value="Kg" />
       </YAxis>
       <Line type="monotone" dataKey="temp_ext" stroke="#880000" name="temperature extérieure" yAxisId="temp_ext" />
-      <YAxis orientation="left" dataKey="temp_ext" yAxisId="temp_ext" domain={['dataMin', 'dataMax']}>
+      <YAxis orientation="left" dataKey="temp_ext" yAxisId="temp_ext" domain={[-10, 60]}>
         <Label position="insideTopLeft" value="°C" />
-        </YAxis>
+      </YAxis>
       <Legend verticalAlign="top" height={36} />
       <XAxis dataKey="date" tickFormatter={formatUnits} />
       <Tooltip labelFormatter={tooltipFormatter} />
